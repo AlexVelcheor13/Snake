@@ -72,6 +72,9 @@ public class GameField extends JPanel implements ActionListener { // здесь 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (inGame){
+            String str = "Game starts";
+            g.setColor(Color.CYAN);
+            g.drawString(str, 130, SIZE/2);
             g.drawImage(apple, appleX, appleY, this);
             for (int i = 0; i < dots; i++) {
                 g.drawImage(dot, x[i], y[i], this);
@@ -83,7 +86,7 @@ public class GameField extends JPanel implements ActionListener { // здесь 
         }
     }
 
-    // логическая перерисовка точек(сдвиг в лево, право и т.д)
+    // логическая перерисовка точек(сдвиг влево, право и т.д)
     public void move(){
         for (int i = dots; i > 0; i--) {
             x[i] = x[i-1];
