@@ -11,7 +11,7 @@ public class GameField extends JPanel implements ActionListener { // здесь 
     // игровые параметры
     private final int SIZE = 320;
     private final int DOT_SIZE = 16; //размер в пикселях одного квадратика(яблочка)
-    private final int ALL_DOTS = 400; // кол-во игровых единиц, которых может разместиться на игровом поле
+    private final int ALL_DOTS = 300; // кол-во игровых единиц, которых может разместиться на игровом поле
 
     private Image dot;
     private Image apple;
@@ -65,8 +65,8 @@ public class GameField extends JPanel implements ActionListener { // здесь 
     }
 
     public void createApple(){
-        appleX = new Random().nextInt(20) * DOT_SIZE;
-        appleY = new Random().nextInt(20) * DOT_SIZE;
+        appleX = new Random().nextInt(19) * DOT_SIZE;
+        appleY = new Random().nextInt(19) * DOT_SIZE;
     }
 
     @Override
@@ -139,7 +139,7 @@ public class GameField extends JPanel implements ActionListener { // здесь 
         if(y[0] > SIZE){
             inGame = false;
         }
-        if(x[0] < 0){
+        if(y[0] < 0){
             inGame = false;
         }
     }
