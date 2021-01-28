@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +38,7 @@ public class GameField extends JPanel implements ActionListener { // здесь 
 
     public GameField(){
         setBackground(Color.BLACK);
+        setBorder(BorderFactory.createLineBorder(Color.BLUE));
         loadImages();
         initGame();
         addKeyListener(new FieldKeyListener());
