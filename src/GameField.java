@@ -22,6 +22,7 @@ public class GameField extends JPanel implements ActionListener { // здесь 
     private int[] y = new int[ALL_DOTS];
 
     private int dots;
+    private int points = 0;
 
     // таймер
     private Timer timer;
@@ -72,17 +73,21 @@ public class GameField extends JPanel implements ActionListener { // здесь 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (inGame){
-            String str = "Game starts";
+            String str = Integer.toString(points);
             g.setColor(Color.CYAN);
-            g.drawString(str, 130, SIZE/2);
+            g.drawString(str, 10, SIZE/2);
+
             g.drawImage(apple, appleX, appleY, this);
             for (int i = 0; i < dots; i++) {
                 g.drawImage(dot, x[i], y[i], this);
             }
         } else {
-            String str = "Game Over";
+            String str1 = "Game Over";
             g.setColor(Color.CYAN);
-            g.drawString(str, 130, SIZE/2);
+            g.drawString(str1, 130, SIZE/2);
+            String str2 = "your score = " + points;
+            g.setColor(Color.CYAN);
+            g.drawString(str2, 130, (int) (SIZE/1.85));
         }
     }
 
@@ -112,6 +117,7 @@ public class GameField extends JPanel implements ActionListener { // здесь 
     private void checkApple() {
         if (x[0] == appleX && y[0] == appleY) {
             dots++;
+            points++;
             createApple();
         }
     }
